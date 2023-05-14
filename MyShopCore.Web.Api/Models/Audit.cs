@@ -2,9 +2,9 @@
 {
     public class Audit
     {
-        public DateTime Created { get; set; }
+        public DateTimeOffset Created { get; set; }
 
-        public DateTime Updated { get; set; }
+        public DateTimeOffset Updated { get; set; }
 
         public Guid CreatedBy { get; set; }
 
