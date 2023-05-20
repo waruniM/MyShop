@@ -17,6 +17,7 @@ namespace MyShopCore.Web.Api.Brokers.Storages
             //base.OnModelCreating(modelBuilder);
             var connectionString = this.configuration.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
 }

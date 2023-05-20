@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyShopCore.Web.Api.Brokers.Storages;
 
@@ -11,9 +12,11 @@ using MyShopCore.Web.Api.Brokers.Storages;
 namespace MyShopCore.Web.Api.Migrations
 {
     [DbContext(typeof(SorageBroker))]
-    partial class SorageBrokerModelSnapshot : ModelSnapshot
+    [Migration("20230519174820_StockMigration")]
+    partial class StockMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,4 +1,10 @@
+using MyShopCore.Web.Api.Brokers.DateTimes;
+using MyShopCore.Web.Api.Brokers.Loggings;
 using MyShopCore.Web.Api.Brokers.Storages;
+using MyShopCore.Web.Api.Models.Products;
+using MyShopCore.Web.Api.Models.Stocks;
+using MyShopCore.Web.Api.Services.Foundations.Products;
+using MyShopCore.Web.Api.Services.Foundations.Stocks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +16,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<SorageBroker>();
+
+builder.Services.AddTransient<IStorageBroker, SorageBroker > ();
+builder.Services.AddTransient<ILoggingBroker, LoggingBroker>();
+builder.Services.AddTransient<IDateTimeBroker, DateTimeBrocker>();
+builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<IStockService, StockService>();
 
 var app = builder.Build();
 
